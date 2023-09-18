@@ -1,0 +1,45 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+        <th scope="col">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let brewery of breweries; let i = index"
+        (click)="detail(brewery.id)"
+      >
+        <td scope="row">{{ i + 1 }}</td>
+        <td>{{ brewery.name }}</td>
+        <td>{{ brewery.country }}</td>
+        <td>{{ brewery.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li
+        class="page-item"
+        [ngClass]="{ disabled: page === 1 }"
+        (click)="prevPage()"
+      >
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item" (click)="prevPage()">
+        <a class="page-link">{{ page === 1 ? page : page - 1 }}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link">{{ page === 1 ? page + 1 : page }}</a>
+      </li>
+      <li class="page-item" (click)="nextPage()">
+        <a class="page-link">{{ page === 1 ? page + 2 : page + 1 }}</a>
+      </li>
+      <li class="page-item" (click)="nextPage()">
+        <a class="page-link">Next</a>
+      </li>
+    </ul>
+  </nav>
+  
