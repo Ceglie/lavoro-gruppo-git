@@ -23,13 +23,13 @@ export class HomeComponent {
   getBreweries() {
     this.apiService
       .getBreweries(String(this.page), String(this.per_page))
-      .subscribe((data: Breweries[]) => {
+      .subscribe((data: Pokemon[]) => {
         this.breweries = data;
       });
   }
   detail(id: string) {
     console.log(id);
-    this.router.navigate(['/dettaglio', id]);
+    this.router.navigate(['/pokemon', id]);
   }
   prevPage() {
     if (this.page === 1) return;
