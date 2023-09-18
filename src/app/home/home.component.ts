@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Pokemon } from '../models/pokemon.models';
 
 @Component({
   selector: 'app-home',
