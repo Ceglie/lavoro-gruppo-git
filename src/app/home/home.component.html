@@ -3,19 +3,19 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Country</th>
-        <th scope="col">City</th>
+        <th scope="col">tipo</th>
+        <th scope="col">lega</th>
       </tr>
     </thead>
     <tbody>
       <tr
-        *ngFor="let brewery of breweries; let i = index"
-        (click)="detail(brewery.id)"
+        *ngFor="let pokemon of pokemons; let i = index"
+        (click)="detail(pokemon.id)"
       >
         <td scope="row">{{ i + 1 }}</td>
-        <td>{{ brewery.name }}</td>
-        <td>{{ brewery.country }}</td>
-        <td>{{ brewery.city }}</td>
+        <td>{{ pokemon.name }}</td>
+        <td>{{ pokemon.country }}</td>
+        <td>{{ pokemon.city }}</td>
       </tr>
     </tbody>
   </table>
@@ -42,4 +42,3 @@
       </li>
     </ul>
   </nav>
-<p>Simone è tonto</p>

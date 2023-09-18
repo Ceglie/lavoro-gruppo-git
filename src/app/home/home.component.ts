@@ -17,14 +17,14 @@ export class HomeComponent {
     private apiService: PokemonService,
     private router: Router
   ) {
-        this.getBreweries();
+        this.getPokemon();
   }
 
-  getBreweries() {
+  getPokemon() {
     this.apiService
-      .getBreweries(String(this.page), String(this.per_page))
+      .getPokemon(String(this.page), String(this.per_page))
       .subscribe((data: Pokemon[]) => {
-        this.breweries = data;
+        this.pokemon = data;
       });
   }
   detail(id: string) {
@@ -34,12 +34,12 @@ export class HomeComponent {
   prevPage() {
     if (this.page === 1) return;
     this.page--;
-    this.getBreweries();
+    this.getPokemon();
   }
 
   nextPage() {
     if (this.page === 20) return;
     this.page++;
-    this.getBreweries();
+    this.getPokemon();
   }
 }

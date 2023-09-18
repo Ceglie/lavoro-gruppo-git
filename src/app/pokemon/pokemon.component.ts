@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PokemonService } from '../service/pokemon.service';
 
 @Component({
   selector: 'app-pokemon',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./pokemon.component.scss']
 })
 export class PokemonComponent {
+  id: string = '';
+  pokemon?: Pokemon;
 
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: PokemonService
+  ) {
+    this.route.params.subscribe((params) => {
+      this.id = params['id'];
+      this.getPokemonID();
+    });
+  }
+
+  getPokemonID() {
+    this.apiService.getPokemonID(this.id).subscribe((data: Pokemon) => {
+      this.pokemon = data;
+    });
+  }
 }
